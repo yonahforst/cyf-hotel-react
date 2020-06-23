@@ -66,3 +66,7 @@ tr {
   flex-direction: row;
   justify-content: space-evenly;
 }
+
+.highlightedRow {
+  background-color: lightskyblue;
+}

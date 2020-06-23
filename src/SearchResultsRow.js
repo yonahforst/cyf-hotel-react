@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import moment from "moment";
 
@@ -7,8 +7,14 @@ const SearchResultsRow = props => {
   const checkIn = moment(data.checkInDate);
   const checkOut = moment(data.checkOutDate);
 
+  const [isSelected, setIsSelected] = useState();
+
+  const flipIt = () => {
+    setIsSelected(!isSelected);
+  };
+
   return (
-    <tr>
+    <tr className={isSelected && "highlightedRow"} onClick={flipIt}>
       <th scope="row">{data.id}</th>
       <td>{data.title}</td>
       <td>{data.firstName}</td>
