@@ -13,6 +13,10 @@ const SearchResultsRow = props => {
     setIsSelected(!isSelected);
   };
 
+  const handleClick = () => {
+    props.setCustomerProfile(data.id);
+  };
+
   return (
     <tr className={isSelected && "highlightedRow"} onClick={flipIt}>
       <th scope="row">{data.id}</th>
@@ -24,6 +28,9 @@ const SearchResultsRow = props => {
       <td>{data.checkInDate}</td>
       <td>{data.checkOutDate}</td>
       <td>{checkOut.diff(checkIn, "days")}</td>
+      <td>
+        <button onClick={handleClick}>Show profile</button>
+      </td>
     </tr>
   );
 };
